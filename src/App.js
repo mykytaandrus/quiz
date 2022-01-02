@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Loader from './components/Loader/Loader';
 
 const App = () => {
   return (
-    <div className='App'>
-      Quiz App
+    <div className='app'>
+      <Loader></Loader>
     </div>
   );
 }

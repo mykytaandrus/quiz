@@ -1,0 +1,28 @@
+.loader {
+  align-self: center;
+  display: block;
+  /* display: inline-block; */
+  height: 80px;
+  margin: 0 auto;
+  width: 80px;
+  justify-content: center;
+}
+.loader:after {
+  animation: loader 1.2s linear infinite;
+  border: 4px solid #FFFFFF;
+  border-color: #2B2B2B transparent #2B2B2B transparent;
+  border-radius: 50%;
+  content: " ";
+  display: block;
+  height: 64px;
+  /* margin: 8px; */
+  width: 64px;
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
