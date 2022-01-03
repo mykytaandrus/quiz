@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
+import Form from '../../components/Form/Form';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -8,18 +9,16 @@ const SignUp = () => {
 
   const signup = async event => {
     event.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password);
+    
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
-    <div className='signup'>
-    <form onSubmit={signup}>
-      <p>greenacny@gmail.com greenacny123</p>
-      <input onChange={event => setEmail(event.target.value)} placeholder='Email...' type={'email'} ></input>
-      <input onChange={event => setPassword(event.target.value)} placeholder='Password...' ></input>
-      <button>Sign Up</button>
-    </form>
-  </div>
+    <Form buttonTitle={'Sign Up'} className={'signup'} onSubmitHandler={signup} setEmail={setEmail} setPassword={setPassword} />
   );
 };
 

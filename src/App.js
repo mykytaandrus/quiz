@@ -30,24 +30,30 @@ const App = () => {
   }
   if (loading) {
     return (
-      <Loader />
+      <div className='app'>
+        <Loader />
+      </div>
     );
   }
   if (user) {
     return (
-      <Routes>
-      <Route element={<Main />} path='/' />
-      <Route element={<Navigate to='/' />} path='*' />
-      </Routes>
+      <div className='app'>
+        <Routes>
+          <Route element={<Main />} path='/' />
+          <Route element={<Navigate to='/' />} path='*' />
+        </Routes>
+      </div>
     );
   }
-  
+
   return (
-    <Routes>
-      <Route element={<SignIn />} path='signin' />
-      <Route element={<SignUp />} path='signup' />
-      <Route element={<Navigate to='signin' />} path='*' />
-    </Routes>
+    <div className='app'>
+      <Routes>
+        <Route element={<SignIn />} path='signin' />
+        <Route element={<SignUp />} path='signup' />
+        <Route element={<Navigate to='signin' />} path='*' />
+      </Routes>
+    </div>
   );
 };
 
