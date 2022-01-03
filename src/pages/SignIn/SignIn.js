@@ -15,12 +15,12 @@ const SignIn = () => {
     <div className='signin'>
       <form onSubmit={signin}>
         <p>greenacny@gmail.com greenacny123</p>
-        <input onChange={event => setEmail(event.target.value)} placeholder='Email...' ></input>
-        <input onChange={event => setPassword(event.target.value)} placeholder='Password...' ></input>
+        <input onChange={event => setEmail(event.target.value)} placeholder='Email...' type={'email'}></input>
+        <input onChange={event => setPassword(event.target.value)} placeholder='Password...'  type={'password'}></input>
         <button>Sign In</button>
       </form>
     </div>
   );
 };
-//type={'email'} type={'password'}
+
 export default SignIn;
