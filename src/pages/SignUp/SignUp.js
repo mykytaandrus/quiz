@@ -18,7 +18,7 @@ const SignUp = () => {
   };
 
   return (
-    <Form buttonTitle={'Sign Up'} className={'signup'} onSubmitHandler={signup} setEmail={setEmail} setPassword={setPassword} />
+    <Form buttonTitle={'Sign Up'} className={'signup'} linkTo={'signin'} onSubmitHandler={signup} setEmail={setEmail} setPassword={setPassword} />
   );
 };
 
