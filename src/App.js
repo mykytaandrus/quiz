@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Loader from './components/Loader/Loader';
-import Main from './pages/Main/Main';
+import Home from './pages/Home/Home';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import { auth } from './firebase';
@@ -39,7 +39,7 @@ const App = () => {
     return (
       <div className='application'>
         <Routes>
-          <Route element={<Main />} path='/' />
+          <Route element={<Home />} path='/' />
           <Route element={<Navigate to='/' />} path='*' />
         </Routes>
       </div>

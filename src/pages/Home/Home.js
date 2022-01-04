@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 
-const Main = () => {
+const Home = () => {
   return (
     <React.Fragment>
       <Header />
@@ -9,4 +9,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;
