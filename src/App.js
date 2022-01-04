@@ -37,7 +37,7 @@ const App = () => {
   }
   if (user) {
     return (
-      <div className='app'>
+      <div className='application'>
         <Routes>
           <Route element={<Main />} path='/' />
           <Route element={<Navigate to='/' />} path='*' />

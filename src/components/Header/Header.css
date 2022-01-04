@@ -1,0 +1,31 @@
+.header {
+  background-image: linear-gradient(135deg, #15D7EC 0%, #5AFA9F 100%);
+  background-image: linear-gradient(135deg, #FE888C 0%, #FEA974 100%);
+  background-image: linear-gradient(135deg, #897DFE 0%, #D779FE 100%);
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.menu__button, .menu__text {
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 15px 15px 15px 45px;
+}
+.menu__text {
+  background-image: url("../../images/signin-icon.svg");
+  cursor: default;
+}
+.menu__button {
+  background-image: url("../../images/signout-icon.svg");
+}
+.menu__button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}

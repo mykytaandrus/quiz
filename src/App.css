@@ -4,3 +4,8 @@
   min-height: 100vh;
   padding: 15px;
 }
+.application {
+  background-color: #ECEBF4;
+  min-height: 100vh;
+  /* padding: 15px; */
+}
