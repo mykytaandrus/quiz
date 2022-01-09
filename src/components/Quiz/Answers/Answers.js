@@ -1,5 +1,4 @@
 import AnswerItem from './AnswerItem/AnswerItem';
-import './Answers.css';
 
 const Answers = ({answers}) => {
   return (
