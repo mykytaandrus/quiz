@@ -1,0 +1,14 @@
+.quiz-card {
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  height: 220px;
+  min-width: 380px;
+  margin: 15px;
+  padding: 40px;
+}
+@media (max-width: 500px) {
+  .quiz-card {
+    min-width: 0;
+    width: 380px;
+  }
+}
