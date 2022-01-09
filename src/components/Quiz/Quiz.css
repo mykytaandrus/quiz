@@ -1,0 +1,23 @@
+.quiz {
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  padding: 40px 40px 60px;
+}
+.quiz__title {
+  color: rgba(0, 0, 0, 0.15);
+  text-align: end;
+}
+.quiz__question {
+  margin: 20px 0;
+}
+@media (max-width: 768px) {
+  .quiz {
+    padding: 20px 20px 40px;
+  }
+  .quiz__title {
+    font-size: 28px;
+  }
+  .quiz__question {
+    font-size: 20px;
+  }
+}
