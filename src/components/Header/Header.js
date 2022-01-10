@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { setAuthenticate } from '../../store/userSlice';
+import { setQuizzes } from '../../store/quizzesSlice';
 import './Header.css';
 
 const Header = () => {
@@ -12,6 +13,7 @@ const Header = () => {
   const signout = async () => {
     signOut(auth);
     dispatch(setAuthenticate(''));
+    dispatch(setQuizzes([]));
   };
   return (
     <header className='header'>

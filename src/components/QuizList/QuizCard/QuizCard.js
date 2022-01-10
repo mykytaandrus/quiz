@@ -1,9 +1,10 @@
 import './QuizCard.css';
 
-const QuizCard = () => {
+const QuizCard = ({item}) => {
   return (
     <div className='quiz-card'>
-      Super Quiz
+      <h3>{item.title}</h3>
+      <p>by {item.author}</p>
     </div>
   );
 };
