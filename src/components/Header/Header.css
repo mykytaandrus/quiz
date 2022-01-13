@@ -9,8 +9,7 @@
   margin: 0 auto;
   max-width: 1400px;
 }
-
-.menu__button, .menu__text {
+.menu__button, .menu__text, .menu__link {
   background-position: 15px center;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -18,14 +17,31 @@
   font-size: 15px;
   font-weight: 500;
   padding: 15px 15px 15px 45px;
+  text-decoration: none;
+}
+.menu__link {
+  background-image: url("../../images/home-icon.svg");
+  background-size: 21px;
+  background-position: 15px center -1px;
 }
 .menu__text {
   background-image: url("../../images/signin-icon.svg");
   cursor: default;
 }
-.menu__button {
+.menu__button--icon-create {
+  background-image: url("../../images/create-icon.svg");
+  background-size: 16px;
+}
+.menu__button--icon-signout {
   background-image: url("../../images/signout-icon.svg");
 }
-.menu__button:hover {
+.menu__button:hover, .menu__link:hover {
   background-color: rgba(255, 255, 255, 0.15);
+}
+@media (max-width: 600px) {
+  .menu__button, .menu__link {
+    font-size: 0;
+    background-position: center;
+    padding: 25px;
+  }
 }

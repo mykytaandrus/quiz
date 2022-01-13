@@ -7,8 +7,10 @@ import Loader from './components/Loader/Loader';
 import Home from './pages/Home/Home';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
+// import Quiz from './components/Quiz/Quiz';
 import { auth } from './firebase';
 import { setAuthenticate } from './store/userSlice';
+
 // greenacny@gmail.com
 
 const App = () => {
