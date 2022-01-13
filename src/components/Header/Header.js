@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { ref, set } from 'firebase/database';
 import { auth, database } from '../../firebase';
 import { setAuthenticate } from '../../store/userSlice';
 import { setQuizzes } from '../../store/quizzesSlice';
-import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
@@ -21,7 +21,7 @@ const Header = () => {
       author: email.split('@')[0],
       date: `${date[1]} ${date[2]} ${date[3]} ${date[4]}`,
       title: 'Quiz',
-      quizId: `quiz${namingDate}`,
+      quizId: `${namingDate}`,
       quizzes: {
         question1: {
           answer1: 'answer01',

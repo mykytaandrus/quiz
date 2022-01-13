@@ -7,9 +7,10 @@ import Loader from './components/Loader/Loader';
 import Home from './pages/Home/Home';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
-// import Quiz from './components/Quiz/Quiz';
+import Quiz from './components/Quiz/Quiz';
 import { auth } from './firebase';
 import { setAuthenticate } from './store/userSlice';
+import Header from './components/Header/Header';
 
 // greenacny@gmail.com
 
@@ -40,8 +41,10 @@ const App = () => {
   if (user) {
     return (
       <div className='application'>
+        <Header />
         <Routes>
           <Route element={<Home />} path='/' />
+          <Route element={<Quiz />} path='quiz:id' />
           <Route element={<Navigate to='/' />} path='*' />
         </Routes>
       </div>

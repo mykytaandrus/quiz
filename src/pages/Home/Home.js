@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { onValue, ref} from 'firebase/database';
 import { database } from '../../firebase/index';
 import { setQuizzes } from '../../store/quizzesSlice';
-import Header from '../../components/Header/Header';
 import Main from '../../components/Main/Main';
 import Loader from '../../components/Loader/Loader';
 
@@ -21,7 +20,6 @@ const Home = () => {
 
   return (
     <React.Fragment>
-      <Header />
       {isLoading ? <Loader /> : <Main />}
     </React.Fragment>
   );

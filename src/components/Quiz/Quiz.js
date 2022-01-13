@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import Answers from './Answers/Answers';
 import './Quiz.css';
 
 const Quiz = () => {
+  // const [quiz1, setQuiz] = useState(null);
   const quiz = {
     author: '',
     date: '1234567',
