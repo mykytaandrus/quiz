@@ -1,50 +1,39 @@
 import React, { useEffect } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
 import Loader from './components/Loader/Loader';
+import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
-import Quiz from './components/Quiz/Quiz';
-import { auth } from './firebase';
-import { setAuthenticate } from './store/userSlice';
-import Header from './components/Header/Header';
-
-// greenacny@gmail.com
+import { addAuthListener } from './store/authSlice';
+import './App.css';
 
 const App = () => {
   const dispatch = useDispatch();
-  const [user, loading, error] = useAuthState(auth);
+  const isAuth = useSelector(state => state.auth.isAuth)
+  const isLoading = useSelector(state => state.auth.isLoading);
 
   useEffect(() => {
-    if (user) {
-      dispatch(setAuthenticate(user.email));
-    }
-  }, [user, dispatch]);
+    console.log('effect');
+    dispatch(addAuthListener());
+  }, [dispatch]);
 
-  if (error) {
-    return (
-      <div>
-        <p>Error: {error}</p>
-      </div>
-    );
-  }
-  if (loading) {
+  if (isLoading) {
     return (
       <div className='app'>
         <Loader />
       </div>
     );
   }
-  if (user) {
+
+  if (isAuth) {
     return (
       <div className='application'>
         <Header />
         <Routes>
           <Route element={<Home />} path='/' />
-          <Route element={<Quiz />} path='quiz:id' />
+          <Route element={<Home />} path='quiz:id' />
           <Route element={<Navigate to='/' />} path='*' />
         </Routes>
       </div>

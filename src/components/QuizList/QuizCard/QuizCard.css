@@ -9,7 +9,7 @@
 .quiz-card__title {
   margin-left: 5px;
 }
-.quiz-card__author {
+.quiz-card__author, .quiz-card__date {
   color: rgba(0, 0, 0, 0.25);
   margin-left: 5px;
 }
@@ -22,17 +22,18 @@
   font-weight: 500;
   margin: 65px 10px 0 0;
   padding: 10px 10px 10px 35px;
+  opacity: 0.25;
   text-decoration: none;
 }
 .quiz-card__button:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.03);
+  opacity: 1;
 }
 .quiz-card__start-button {
   background-image: url("../../../images/start-icon.svg");
 }
 .quiz-card__remove-button {
   background-image: url("../../../images/remove-icon.svg");
-  color: rgba(0, 0, 0, 0.25);
 }
 @media (max-width: 500px) {
   .quiz-card {

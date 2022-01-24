@@ -1,55 +1,64 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
 import { ref, set } from 'firebase/database';
-import { auth, database } from '../../firebase';
+import { database } from '../../firebase';
+import { authSignOut } from '../../store/authSlice';
 import { setAuthenticate } from '../../store/userSlice';
 import { setQuizzes } from '../../store/quizzesSlice';
 import './Header.css';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const email = useSelector(state => state.user.email);
+  const email = useSelector(state => state.auth.user);
 
   const createQuiz = async () => {
-    const currentDate = new Date();
-    const namingDate = currentDate.getTime().toString().substring(5);
-    const date = currentDate.toString().split(' ');
+    const author = email.split('@')[0];
+    const date = new Date();
+    const id = date.getTime().toString().substring(4);
+    const validateDate = (date) => {
+      if (date < 10) {
+        return '0' + date;
+      } else {
+        return date;
+      }
+    };
+    const creationDate = `${validateDate(date.getDate())}/${validateDate(date.getMonth() + 1)}/${date.getFullYear()} ${validateDate(date.getHours())}:${validateDate(date.getMinutes())}`;
 
-    await set(ref(database, `quizzes/quiz${namingDate}`), {
-      author: email.split('@')[0],
-      date: `${date[1]} ${date[2]} ${date[3]} ${date[4]}`,
-      title: 'Quiz',
-      quizId: `${namingDate}`,
-      quizzes: {
-        question1: {
-          answer1: 'answer01',
-          answer2: 'answer02',
-          answer3: 'answer03',
-          answer4: 'answer04',
-          rightAnswer: '1',
+    await set(ref(database, `quizzes/quiz${id}`), {
+      author: author,
+      date: creationDate,
+      id: id,
+      questions: [
+        {
+          answers: [
+            'Answer One',
+            'Answer Two',
+            'Answer Three',
+            'Answer Four',
+          ],
+          question: 'What is it?',
+          questionId: 1,
+          rightAnswer: 1,
         },
-        question2: {
-          answer1: 'answer01',
-          answer2: 'answer02',
-          answer3: 'answer03',
-          answer4: 'answer04',
-          rightAnswer: '1',
-        },
-        question3: {
-          answer1: 'answer01',
-          answer2: 'answer02',
-          answer3: 'answer03',
-          answer4: 'answer04',
-          rightAnswer: '1',
+        {
+          answers: [
+            'Awanger',
+            'Awanger',
+            'Not Awanger',
+            'Titan',
+          ],
+          question: 'Who is Thanos',
+          questionId: 2,
+          rightAnswer: 4,
         }
-      },
+      ],
+      title: 'Quiz'
     });
   }
 
   const signout = async () => {
-    signOut(auth);
+    dispatch(authSignOut());
     dispatch(setAuthenticate(''));
     dispatch(setQuizzes([]));
   };
