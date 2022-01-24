@@ -15,7 +15,6 @@ const App = () => {
   const isLoading = useSelector(state => state.auth.isLoading);
 
   useEffect(() => {
-    console.log('effect');
     dispatch(addAuthListener());
   }, [dispatch]);
 

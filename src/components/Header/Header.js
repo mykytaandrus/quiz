@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ref, set } from 'firebase/database';
 import { database } from '../../firebase';
 import { authSignOut } from '../../store/authSlice';
-import { setAuthenticate } from '../../store/userSlice';
 import { setQuizzes } from '../../store/quizzesSlice';
 import './Header.css';
 
@@ -59,7 +58,6 @@ const Header = () => {
 
   const signout = async () => {
     dispatch(authSignOut());
-    dispatch(setAuthenticate(''));
     dispatch(setQuizzes([]));
   };
 
