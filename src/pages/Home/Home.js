@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { onValue, ref} from 'firebase/database';
 import { database } from '../../firebase/index';
-import { setQuizzes } from '../../store/quizzesSlice';
+import { setQuizzes } from '../../store/quizListSlice';
 import Main from '../../components/Main/Main';
 import Loader from '../../components/Loader/Loader';
 import Quiz from '../../components/Quiz/Quiz';

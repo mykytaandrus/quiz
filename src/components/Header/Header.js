@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ref, set } from 'firebase/database';
 import { database } from '../../firebase';
 import { authSignOut } from '../../store/authSlice';
-import { setQuizzes } from '../../store/quizzesSlice';
+import { setQuizzes } from '../../store/quizListSlice';
 import './Header.css';
 
 const Header = () => {
