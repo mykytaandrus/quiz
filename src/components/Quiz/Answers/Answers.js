@@ -1,9 +1,9 @@
 import AnswerItem from './AnswerItem/AnswerItem';
 
-const Answers = ({answers}) => {
+const Answers = ({answers, onClick, rightAnswer}) => {
   return (
     <section className='quiz__wrapper'>
-      {answers.map((item, index) => <AnswerItem answer={item} index={index + 1} key={index} />)}
+      {answers.map((item, index) => <AnswerItem answer={item} index={index + 1} key={index} onClick={onClick} rightAnswer={rightAnswer}/>)}
     </section>
   );
 };

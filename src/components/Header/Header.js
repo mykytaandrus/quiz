@@ -5,6 +5,7 @@ import { ref, set } from 'firebase/database';
 import { database } from '../../firebase';
 import { authSignOut } from '../../store/authSlice';
 import { setQuizzes } from '../../store/quizListSlice';
+import { fetchQuiz } from '../../store/quizSlice';
 import './Header.css';
 
 const Header = () => {
@@ -65,7 +66,7 @@ const Header = () => {
     <header className='header'>
       <nav className='menu'>
         <ul className='menu__list'>
-          <Link className='menu__link' to='/'>Home</Link>
+          <Link className='menu__link' to='/' onClick={() => dispatch(fetchQuiz(null))}>Home</Link>
           <button className='menu__button menu__button--icon-create' onClick={createQuiz}>Create Quiz</button>
           <button className='menu__button menu__button--icon-signout' onClick={signout}>Sign Out</button>
         </ul>
